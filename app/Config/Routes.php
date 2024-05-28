@@ -33,6 +33,29 @@ $routes->get('/', 'Home::index');
 $routes->get('/nosotros', 'Home::nosotros');
 $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get('/contacto', 'Home::contacto');
+$routes->get('/catalogo', 'Home::catalogo');
+$routes->get('/consultas', 'Home::consultas');
+$routes->get('/terminos', 'Home::terminos');
+$routes->get('/carrito', 'Home::carrito');
+
+//auth
+$routes->get('/login', 'Home::login');
+$routes->post('/api/login', 'UsuariosController::login');
+$routes->post('/api/registrarme', 'UsuariosController::registrar');
+$routes->get('/api/logout', 'UsuariosController::logout');
+$routes->get('/registrarme', 'Home::registrarme');
+
+//admin
+$routes->get('/admin', 'Home::users');
+$routes->get('/admin/vehiculos', 'Home::vehiculosAdmin');
+$routes->get('/admin/vehiculos/new', 'Home::newVehiculo');
+$routes->get('/admin/vehiculos/edit/(:num)', 'Home::editVehiculo/$1');
+$routes->post('/api/vehiculos/new', 'VehiculosController::newVehiculo');
+$routes->get('/api/users/delete/(:num)', 'UsuariosController::delete/$1');
+$routes->get('/api/vehiculos/delete/(:num)', 'VehiculosController::delete/$1');
+$routes->post('/api/consultas/new', 'ConsultaController::newConsulta');
+$routes->get('/admin/consultas', 'Home::consultasAdmin');
+$routes->get('/admin/buscar_vehiculos', 'VehiculosController::buscarVehiculo');
 
 /*
  * --------------------------------------------------------------------
